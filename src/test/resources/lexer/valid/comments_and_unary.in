@@ -1,0 +1,8 @@
+let a = -5;
+let b: Int = +3;
+/* block
+comment */
+if (a != b) {
+    a = a % 2;
+}
+// done

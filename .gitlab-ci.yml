@@ -1,0 +1,22 @@
+image: gradle:8.10.2-jdk17
+
+stages:
+  - test
+
+cache:
+  key: gradle-cache
+  paths:
+    - .gradle/
+    - build/
+
+lexer-tests:
+  stage: test
+  script:
+    - gradle --no-daemon clean test
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - build/test-results/test/*.xml
+    paths:
+      - build/reports/tests/test/
